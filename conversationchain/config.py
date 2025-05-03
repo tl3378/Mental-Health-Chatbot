@@ -10,26 +10,19 @@ import os
 import logging
 from dotenv import load_dotenv
 from openai import OpenAI
-import streamlit as st
 
 # Set up logging
 logger = logging.getLogger(__name__)
 
 try:
-    # Try to load from Streamlit secrets first
-    api_key = st.secrets.get("OPENAI_API_KEY")
-    logger.info("Trying to get API key from Streamlit secrets...")
+    # Load environment variables
+    env_path = os.path.join(os.path.dirname(__file__), 'model.env')
+    load_dotenv(env_path)
     
-    # If not found in secrets, try loading from .env file
+    # Get API key
+    api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
-        logger.info("API key not found in Streamlit secrets, trying .env file...")
-        env_path = os.path.join(os.path.dirname(__file__), 'model.env')
-        load_dotenv(env_path)
-        api_key = os.getenv("OPENAI_API_KEY")
-    
-    # If still not found, raise error
-    if not api_key:
-        error_msg = "OPENAI_API_KEY not found in environment variables or Streamlit secrets"
+        error_msg = "OPENAI_API_KEY not found in environment variables"
         logger.error(error_msg)
         raise ValueError(error_msg)
     
