@@ -43,4 +43,7 @@ logs/
 Thumbs.db
 
 # Streamlit
-.streamlit/ 
+.streamlit/
+
+# Test files
+test_*.py 
