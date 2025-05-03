@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Chatbot - Spatial Design Prototype</title>
+    <style>
+        :root {
+            --primary-color: #6B8CFF;
+            --secondary-color: #FFB6C1;
+            --background-color: #F5F7FA;
+            --text-color: #2C3E50;
+            --border-radius: 20px;
+            --transition-speed: 0.3s;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .chat-container {
+            width: 90%;
+            max-width: 800px;
+            height: 80vh;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .threshold-space {
+            height: 20%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.5em;
+            text-align: center;
+            padding: 20px;
+            transition: all var(--transition-speed);
+        }
+
+        .conversation-landscape {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message {
+            max-width: 70%;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin: 5px;
+            position: relative;
+            transition: all var(--transition-speed);
+        }
+
+        .user-message {
+            background: var(--primary-color);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .bot-message {
+            background: #F0F2F5;
+            color: var(--text-color);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .important-message {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .reflection-space {
+            height: 100px;
+            background: linear-gradient(to right, transparent, rgba(107, 140, 255, 0.1), transparent);
+            margin: 20px 0;
+            border-radius: var(--border-radius);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-color);
+            font-style: italic;
+        }
+
+        .input-zone {
+            padding: 20px;
+            background: white;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 10px;
+        }
+
+        .input-field {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: var(--border-radius);
+            background: #F0F2F5;
+            font-size: 1em;
+            transition: all var(--transition-speed);
+        }
+
+        .input-field:focus {
+            outline: none;
+            background: #E8EAF6;
+        }
+
+        .action-button {
+            padding: 15px 25px;
+            border: none;
+            border-radius: var(--border-radius);
+            background: var(--primary-color);
+            color: white;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+        }
+
+        .action-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(107, 140, 255, 0.3);
+        }
+
+        .emergency-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #FF6B6B;
+            padding: 15px 25px;
+            border-radius: var(--border-radius);
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+            transition: all var(--transition-speed);
+        }
+
+        .emergency-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message {
+            animation: fadeIn 0.3s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="threshold-space">
+            Welcome to a safe space for conversation
+        </div>
+        <div class="conversation-landscape">
+            <div class="message bot-message">
+                Hi there. I'm here to listen and support you. How are you feeling today?
+            </div>
+            <div class="message user-message">
+                I've been feeling really overwhelmed lately...
+            </div>
+            <div class="message bot-message important-message">
+                I hear that you're feeling overwhelmed. That's completely valid. Would you like to talk more about what's been going on?
+            </div>
+            <div class="reflection-space">
+                Take your time... I'm here when you're ready
+            </div>
+            <div class="message user-message">
+                It's just everything feels too much right now
+            </div>
+            <div class="message bot-message">
+                I understand. Feeling overwhelmed can be really difficult. Let's take this one step at a time. What's been the most challenging part for you?
+            </div>
+        </div>
+        <div class="input-zone">
+            <input type="text" class="input-field" placeholder="Type your message...">
+            <button class="action-button">Send</button>
+        </div>
+    </div>
+    <a href="#" class="emergency-button">Need Immediate Help?</a>
+</body>
+</html> 
