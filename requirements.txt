@@ -1,7 +1,7 @@
 streamlit==1.44.0
 openai>=1.27.0
 python-dotenv==1.0.0
-langchain==0.0.350
+langchain==0.1.6
 langchain-openai==0.0.2
 numpy==1.24.4
 spacy==3.5.4
@@ -10,5 +10,5 @@ setuptools==65.5.0
 pip==24.0
 httpx==0.23.3
 https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.5.0/en_core_web_sm-3.5.0-py3-none-any.whl
-langchain-community==0.0.20
-langsmith==0.0.87 
+langchain-community==0.0.21
+langsmith==0.1.0 
